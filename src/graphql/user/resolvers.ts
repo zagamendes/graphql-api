@@ -9,7 +9,7 @@ export const resolvers: Resolvers = {
     },
     user: async (_: any, args) => {
       try {
-        const { data } = await api.get(`/uses/${args.id}`).catch((e) => {
+        const { data } = await api.get(`/users/${args.id}`).catch((e) => {
           console.log(e);
 
           throw Error(e.message);
