@@ -38,7 +38,14 @@ export type Geo = {
 
 export type Mutation = {
   __typename?: 'Mutation';
+  login?: Maybe<Scalars['String']>;
   post?: Maybe<Post>;
+};
+
+
+export type MutationLoginArgs = {
+  email: Scalars['String'];
+  password: Scalars['String'];
 };
 
 
@@ -210,6 +217,7 @@ export type GeoResolvers<ContextType = any, ParentType extends ResolversParentTy
 };
 
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
+  login?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType, RequireFields<MutationLoginArgs, 'email' | 'password'>>;
   post?: Resolver<Maybe<ResolversTypes['Post']>, ParentType, ContextType, RequireFields<MutationPostArgs, 'post'>>;
 };
 
